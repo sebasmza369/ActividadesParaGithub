@@ -1,0 +1,344 @@
+
+:root {
+  --bg-deep: #101b35;      /* Lo cambie por que no se parecía al diseño */
+  --bg-card: #212e44;      /* Tambien lo cambié por que era muy oscuro*/
+  --text-bright: #ffffff;  
+  --text-dim: #94a3b8;     
+  --accent: #22d3ee;   /*Este no es el blanco del ejemplo, pero me gusta*/     
+}
+
+/* RESET */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-dim);
+  font-size: 16px; 
+  font-family: 'Inter', sans-serif; 
+  line-height: 1.6;
+}
+
+/*  COMPONENTES GLOBALES */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+h1, h2, h3 {
+    font-weight: 700; 
+    letter-spacing: -0.025em;
+}
+
+.section-tag {
+    color: var(--bg-deep); 
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase; /* mayus */
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-deep);
+    font-weight: 700;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+}
+
+/*  NAVBAR */
+
+.navbar {
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background-color: transparent; 
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.logo { 
+    height: 24px; 
+}
+
+.navbar__links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.navbar__links a:hover {
+    color: var(--text-bright);
+}
+
+/* HERO */
+
+.hero {
+    padding-top: 160px;
+    padding-bottom: 80px;
+    background-color: var(--bg-deep);      
+}
+
+.hero .container {    
+    padding: 0 40px; 
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.hero__title {
+    font-size: 4.5rem;
+    color: var(--text-bright);
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.hero__title span {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-dim);
+    
+}
+
+.hero__description {
+    max-width: 500px;
+    margin-bottom: 32px;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hero__link {
+    color: var(--text-dim);
+    text-decoration: none;
+}
+
+/* Seccion blanca del medio */
+
+.features, .dashboard-preview {
+    background-color: #ffffff;
+    color: #394048;
+}
+
+.features {
+    display: block; 
+    background-color: #ffffff; 
+    padding: 80px 0; 
+}
+
+.features__header {
+    max-width: 1200px;
+    margin: 0 auto 48px auto;
+    padding: 0 40px; 
+    text-align: left;
+}
+
+.dashboard-preview__content {
+    max-width: 1200px;
+    margin: 0 auto 48px auto;
+    text-align: left;
+    padding: 0 40px;
+}
+
+.section-title {
+    color: #101726; 
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+/* GRID DE TARJETAS */
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--bg-card); 
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover { 
+    transform: translateY(-5px); 
+}
+
+.card__icon { 
+    font-size: 2rem; 
+    color: var(--text-bright); 
+}
+
+.card__title {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+}
+
+.card__text { 
+    color: var(--text-dim); 
+}
+
+/* TITULO DASHBOARD */
+
+.dashboard-preview {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px 100px 40px; 
+    background-color: #ffffff;
+}
+
+.dashboard-preview__content {
+    flex: 0 1 500px; 
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-preview__description{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-preview__image {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.dashboard-preview__image img {
+    width: 100%;    
+    height: auto;     
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.dashboard-preview__list { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.dashboard-preview__list li { 
+    margin-bottom: 10px; 
+}
+
+.dashboard-preview__list li::before { 
+    content: "• "; 
+    color: var(--bg-deep); 
+}
+
+ /* TERCER BLOQUE  */
+
+ .cta {
+    background-color: var(--bg-deep);
+    text-align: center;
+    padding: 120px 40px;
+}
+
+.cta__title {
+    font-size: 3.5rem;
+    color: var(--text-bright);
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--bg-deep);
+    padding: 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo-footer {
+    height: 24px; 
+    width: auto;
+    display: block; 
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer__links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.85rem;
+}
+
+/* PARTE RESPONSIVE */
+
+@media (max-width: 768px) {
+    .hero__title { 
+        font-size: 2.5rem; 
+    }
+    .features__grid { 
+        grid-template-columns: 1fr; 
+    }
+    .dashboard-preview { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .dashboard-preview__image { 
+        order: -1; 
+    }
+    .footer__container { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .navbar__links { 
+        display: none; 
+    }
+}
