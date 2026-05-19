@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Actividad 1 -->
+   <h1 class="mi-titulo">Mi primer uso del DOM</h1>
+   <button class="btn-cambiar">Cambiar el texto</button>
+
+    <!-- Actividad 2 --> 
+    <p class="pa-mensaje"></p>
+    <input type="text" class="in-nombre" placeholder="Escribe tu nombre.">
+    <button class="btn-saludar">Saludar</button>
+   
+
+   <!-- Actividad 3 -->     
+   <h2 class="titulo-estilo">Modificando Estilos</h2>
+   <button class="btn-estilo">Cambiar estilo</button>
+
+   <!-- Actividad 4 -->     
+    <div class="contenedor">
+        <h2>¡Bienvenido al Dark World!</h2>
+        <p>Al presionar el botón, verás el cambio de estilo.</p>
+    </div>
+    <button class="btn-modo">Dark-theme</button>
+    <br><br>
+
+    <!-- Actividad 5 -->
+    <input type="text" class="input-tarea" placeholder="Nueva tarea...">
+    <button class="btn-tarea">Agregar tareas</button>
+    <ul class="lista-tarea"></ul>
+
+
+    <script>
+
+       // Actividad 1 — Cambiar texto ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+       const titulo = document.querySelector('.mi-titulo');
+       const boton = document.querySelector('.btn-cambiar');
+
+       boton.addEventListener('click', function(){
+        titulo.textContent = "El primer cambio del DOM";
+        titulo.style.color = "aqua";
+       })
+
+       // Actividad 2 — Mensaje personalizado ~~~~~~~~~~~~~~~~~~~~~~~~
+
+       const nombre = document.querySelector('.in-nombre');
+       const botonSaludar = document.querySelector('.btn-saludar');
+       const parrafo = document.querySelector('.pa-mensaje');
+
+       botonSaludar.addEventListener('click', function(){
+        const valorCampo = nombre.value;
+        parrafo.textContent = `Hola ${valorCampo}`
+       })
+       parrafo.style.fontSize = "24px"; 
+
+       // Actividad 3 — Cambiar estilos ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+       const tituloEstilizado = document.querySelector('.titulo-estilo');
+       const botonEstilo = document.querySelector('.btn-estilo');
+       
+       botonEstilo.addEventListener('click', function(){
+        tituloEstilizado.style.fontSize = "30px";
+        tituloEstilizado.style.backgroundColor = "lightblue";
+       })
+
+       // Actividad 4 — Modo oscuro ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+       const botonDark = document.querySelector('.btn-modo');
+       const contenedorDark = document.querySelector('.contenedor');
+       botonDark.addEventListener('click', function(){
+        contenedorDark.classList.toggle('dark')        
+       })
+
+       // Actividad 5 — Lista de tareas ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       const inputTarea = document.querySelector('.input-tarea');
+       const botonTarea = document.querySelector('.btn-tarea');
+       const listaTarea = document.querySelector('.lista-tarea');
+       botonTarea.addEventListener('click', function(){
+        listaTarea.innerHTML += `<li>${inputTarea.value}</li>`;
+        inputTarea.value = " ";
+       })
+
+
+
+
+ 
+    </script>
+</body>
+</html>
