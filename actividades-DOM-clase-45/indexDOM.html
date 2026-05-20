@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Actividad 6 -->
+    <h2 class="title-tienda">Nuestro Productos</h2>
+    <div class="contenedor-productos"></div>    
+    <br>
+    <hr>
+
+    <!-- Actividad 7 -->
+    <h1 class="numero-contador">0</h1>    
+    <button class="btn-sumar">Sumar</button>
+    <button class="btn-restar">Restar</button><br>
+    <br>
+    <hr>
+
+    <!-- Actividad 8 -->
+    <p class="texto-ocultable oculto">¡Sorpresa! Aquí está el texto oculto.</p>
+    <button class="btn-toggle">Mostrar Contenido</button><br>
+    <br>
+    <hr>
+
+    <!-- Actividad 9 -->
+    <div class="lista-productos">
+        <div class="producto">
+            <h3>Remera</h3>
+            <p class="precio">$25</p>
+            <p class="descripcion">Algodón 100% premium.</p>
+        </div>
+        <div class="producto">
+            <h3>Pantalón</h3>
+            <p class="precio">$45</p>
+            <p class="descripcion">Jean clásico de corte recto.</p>
+        </div>
+        <div class="producto">
+            <h3>Campera</h3>
+            <p class="precio">$85</p>
+            <p class="descripcion">Impermeable ideal para el invierno.</p>
+        </div>
+    </div> 
+    <br>
+    <hr>
+    <br>
+
+    <!-- actividad 10 -->
+    <input type="text" class="input-nombre" placeholder="Tu nombre"> <br><br>
+    <textarea class="input-comentario" placeholder="Escribe un comentario..."></textarea> <br><br>
+    <button class="btn-publicar">Publicar</button>
+    <div class="seccion-comentarios"></div>
+
+
+    <script>
+
+        // Actividad 6 — Tarjetas de productos ----------------------------------------
+        const productos = [
+            { nombre: "Notebook", precio: 1200 },
+            { nombre: "Celular", precio: 800 },
+            { nombre: "Auriculares", precio: 150 }  
+        ];
+
+        const contenedorProductos = document.querySelector('.contenedor-productos')
+        productos.forEach(function(producto){
+            const tarjeta = document.createElement("div");
+            tarjeta.innerHTML = `
+            <h3>${producto.nombre}</h3>
+            <p>€ ${producto.precio}</p>
+            <button>Comprar</button>
+            `;
+            contenedorProductos.appendChild(tarjeta);
+        })
+
+        // Actividad 7 — Contador -----------------------------------------------------
+        let contador = 0;
+        const numeroContador = document.querySelector('.numero-contador');
+        const botonSumar = document.querySelector('.btn-sumar');
+        const botonRestar = document.querySelector('.btn-restar');
+        botonSumar.addEventListener('click', function(){
+            numeroContador.innerHTML = ++contador;
+        })
+        botonRestar.addEventListener('click', function(){
+            numeroContador.innerHTML = --contador;
+        })
+
+        // Actividad 8 — Mostrar/Ocultar ------------------------------------------------
+        const textoOculto = document.querySelector('.texto-ocultable');
+        const botonToggle = document.querySelector('.btn-toggle');
+        botonToggle.addEventListener('click', function(){
+            textoOculto.classList.toggle('oculto');
+        })
+
+        // Actividad 9 — Botones --------------------------------------------------------
+        const productosRopa = document.querySelectorAll('.producto');
+        productosRopa.forEach(function(producto) {
+            const botonComprar = document.createElement("button")
+            botonComprar.textContent = "comprar";
+            const botonAgregar = document.createElement("button")
+            botonAgregar.textContent = "Añadir al carrito";
+            producto.appendChild(botonComprar);
+            producto.appendChild(botonAgregar);
+        });
+
+        // Actividad 10 — Generador de comentarios --------------------------------------
+        const inputNombre = document.querySelector('.input-nombre');
+        const inputComentario = document.querySelector('.input-comentario');
+        const botonPublicar = document.querySelector('.btn-publicar');
+        const seccionComentarios = document.querySelector('.seccion-comentarios');
+        botonPublicar.addEventListener('click', function(){
+            const nombre = inputNombre.value;
+            const comentario = inputComentario.value;
+            const nuevoComentario = document.createElement('div');
+            nuevoComentario.innerHTML = `<h4>${nombre}</h4><p>Comentario: ${comentario}</p>`;
+            seccionComentarios.appendChild(nuevoComentario);            
+        })
+
+    </script>
+</body>
+</html>
